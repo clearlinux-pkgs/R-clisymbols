@@ -4,20 +4,21 @@
 #
 Name     : R-clisymbols
 Version  : 1.2.0
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/clisymbols_1.2.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/clisymbols_1.2.0.tar.gz
 Summary  : Unicode Symbols at the R Prompt
 Group    : Development/Tools
 License  : MIT
-Requires: R-rlang
 BuildRequires : R-rlang
 BuildRequires : buildreq-R
 
 %description
-when building command line applications. They fall back to
-    alternatives on terminals that do not support Unicode.
-    Many symbols were taken from the 'figures' 'npm' package
+# clisymbols
+[![Linux Build Status](https://travis-ci.org/gaborcsardi/clisymbols.svg?branch=master)](https://travis-ci.org/gaborcsardi/clisymbols)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/clisymbols?svg=true)](https://ci.appveyor.com/project/gaborcsardi/clisymbols)
+[![](http://www.r-pkg.org/badges/version/clisymbols)](http://www.r-pkg.org/pkg/clisymbols)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/clisymbols)](http://www.r-pkg.org/pkg/clisymbols)
 
 %prep
 %setup -q -c -n clisymbols
@@ -27,10 +28,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540740361
+export SOURCE_DATE_EPOCH=1552727756
 
 %install
-export SOURCE_DATE_EPOCH=1540740361
+export SOURCE_DATE_EPOCH=1552727756
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -66,8 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library clisymbols|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  clisymbols || :
 
 
 %files
@@ -95,3 +95,5 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/clisymbols/html/00Index.html
 /usr/lib64/R/library/clisymbols/html/R.css
 /usr/lib64/R/library/clisymbols/screenshot.png
+/usr/lib64/R/library/clisymbols/tests/testthat.R
+/usr/lib64/R/library/clisymbols/tests/testthat/test-all.R
