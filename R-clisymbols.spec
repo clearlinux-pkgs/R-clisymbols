@@ -4,7 +4,7 @@
 #
 Name     : R-clisymbols
 Version  : 1.2.0
-Release  : 38
+Release  : 39
 URL      : https://cran.r-project.org/src/contrib/clisymbols_1.2.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/clisymbols_1.2.0.tar.gz
 Summary  : Unicode Symbols at the R Prompt
